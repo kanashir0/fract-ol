@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:52:31 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/22 16:32:09 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:50:55 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 // 	ft_printf("Error with malloc");
 // 	exit(EXIT_FAILURE);
 // }
+
+void	data_init(t_fractal *fractal)
+{
+	fractal->escape_value = 4;
+	fractal->iterations_definition = 42;
+}
 
 void	fractal_init(t_fractal *fractal)
 {
