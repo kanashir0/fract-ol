@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:34:06 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/22 16:19:17 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:33:27 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	{
 		fractal.name = argv[1];
 		fractal_init(&fractal);
-		//fractal_render(&fractal);
+		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
 	else

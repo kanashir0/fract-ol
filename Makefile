@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = MLX42/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
 
 # Sources and objects vars
-FRACTOL_SRC = main.c init.c
+FRACTOL_SRC = main.c init.c render.c math_utils.c events.c
 
 FRACTOL_OBJ = $(FRACTOL_SRC:.c=.o)
 

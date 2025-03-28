@@ -6,7 +6,7 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:39:58 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/26 17:55:53 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/28 19:07:54 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,14 @@ typedef struct	s_fractal
 }				t_fractal;
 
 void	fractal_init(t_fractal *fractal);
+void	fractal_render(t_fractal *fractal);
 
 // Math utils
 double	map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+
+// Event handlers
+void	key_handler(mlx_key_data_t keydata, void *param);
 
 #endif

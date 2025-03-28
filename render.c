@@ -6,19 +6,11 @@
 /*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:08:17 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/26 17:59:05 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:56:56 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static void	my_pixel_put(int x, int y, t_img *img, int color)
-{
-	int	offset;
-
-	offset = (y * img->line_len) + (x * (img->bpp / 8));
-	*(unsigned int *)(img->pixels_ptr + offset) = color;
-}
 
 // mandelbrot
 void	handle_pixel(int x, int y, t_fractal *fractal)
@@ -28,22 +20,25 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			i;
 	int			color;
 
+	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = map(x, -2, +2, 0, WIDTH); // -1?
-	c.y = map(y, +2, -2, 0, HEIGHT); // -1?
+	c.x = map(x, -2, +2, 0, WIDTH - 1);
+	c.y = map(y, +2, -2, 0, HEIGHT - 1);
 	while (i < fractal->iterations_definition)
 	{
 		z = sum_complex(square_complex(z), c);
 		// the hyphotenuse is higher than the limit 
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, 0, fractal->iterations_definition)
-			my_pixel_put();
+			color = map(i, BLACK, WHITE, 0, fractal->iterations_definition);
+			mlx_put_pixel(fractal->img.img_ptr, x, y, color);
+			return ;
 		}
-		
+		i++;
 	}
-	
+	// Point inside mandelbrot
+	mlx_put_pixel(fractal->img.img_ptr, x, y, WHITE);
 }
 
 void	fractal_render(t_fractal *fractal)
@@ -60,4 +55,8 @@ void	fractal_render(t_fractal *fractal)
 			handle_pixel(x, y, fractal);
 		}
 	}
+	mlx_image_to_window(fractal->mlx_connection,
+						fractal->img.img_ptr,
+						0,
+						0);
 }
