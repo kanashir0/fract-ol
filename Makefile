@@ -1,6 +1,6 @@
 # Compiler vars
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 # MLXFLAGS = -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 MLXFLAGS = -Iinclude -ldl -lglfw -pthread -lm
 

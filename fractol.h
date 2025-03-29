@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:39:58 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/28 19:07:54 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:01:03 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
-# include "MLX42/MLX42.h"
+# include "MLX42/include/MLX42/MLX42.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
@@ -39,24 +39,16 @@ typedef struct s_complex
 	double	y;
 }			t_complex;
 
-
-typedef struct	s_img
-{
-	void	*img_ptr;
-	char	*pixels_ptr;
-	int		bpp;
-	int		endian;
-	int		line_len;
-}				t_img;
-
 typedef struct	s_fractal
 {
 	char	*name;
-	void	*mlx_connection;
 	void	*mlx_window;
-	t_img	img;
+	void	*mlx_image;
 	double	escape_value;
 	int		iterations_definition;
+	double	x_mov;
+	double	y_mov;
+	double	zoom;
 }				t_fractal;
 
 void	fractal_init(t_fractal *fractal);

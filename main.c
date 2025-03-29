@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyasuhir <gyasuhir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:34:06 by gyasuhir          #+#    #+#             */
-/*   Updated: 2025/03/28 17:33:27 by gyasuhir         ###   ########.fr       */
+/*   Updated: 2025/03/29 14:49:38 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		fractal.name = argv[1];
 		fractal_init(&fractal);
 		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
+		mlx_loop(fractal.mlx_window);
 	}
 	else
 	{
